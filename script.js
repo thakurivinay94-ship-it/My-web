@@ -1,0 +1,91 @@
+// 🔐 PASSWORD
+function checkPassword() {
+    let correctPassword = "iloveyou";
+    let input = document.getElementById("password").value;
+
+    if (input === correctPassword) {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("content").style.display = "block";
+    } else {
+        document.getElementById("error").innerText = "Wrong password 💔";
+    }
+}
+
+// ⏳ COUNTDOWN
+let startDate = new Date("2024-01-01");
+
+setInterval(() => {
+    let now = new Date();
+    let diff = now - startDate;
+
+    let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    document.getElementById("countdown").innerText =
+        days + " days together ❤️";
+}, 1000);
+
+// 🎁 POPUP
+setTimeout(() => {
+    document.getElementById("popup").style.display = "block";
+}, 3000);
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+
+// 🎵 MUSIC PLAYER
+let songs = ["romantic.mp3", "romantic2.mp3"];
+let names = ["Romantic Song 💖", "Love Song 💕"];
+let current = 0;
+
+let music = document.getElementById("bg-music");
+let title = document.getElementById("song-name");
+
+music.src = songs[current];
+
+function toggleMusic() {
+    if (music.paused) music.play();
+    else music.pause();
+}
+
+function nextSong() {
+    current = (current + 1) % songs.length;
+    updateSong();
+}
+
+function prevSong() {
+    current = (current - 1 + songs.length) % songs.length;
+    updateSong();
+}
+
+function updateSong() {
+    music.src = songs[current];
+    title.innerText = names[current];
+    music.play();
+}
+
+function changeVolume(v) {
+    music.volume = v;
+}
+
+// 💖 FLOATING HEARTS
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.innerHTML = "❤️";
+
+    heart.style.position = "fixed";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = "100vh";
+    heart.style.fontSize = "20px";
+
+    document.body.appendChild(heart);
+
+    let move = setInterval(() => {
+        heart.style.top = parseInt(heart.style.top) - 3 + "px";
+    }, 50);
+
+    setTimeout(() => {
+        clearInterval(move);
+        heart.remove();
+    }, 4000);
+
+}, 400);

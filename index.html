@@ -1,0 +1,68 @@
+<body>
+
+<div class="container">
+
+    <!-- 🔐 LOGIN -->
+    <div id="login" class="card">
+        <h2>Enter Password 💖</h2>
+        <input type="password" id="password" placeholder="Secret password">
+        <button onclick="checkPassword()">Unlock 🔓</button>
+        <p id="error"></p>
+    </div>
+
+    <!-- 💖 MAIN CONTENT -->
+    <div id="content" style="display:none;">
+
+        <h1>For My Love ❤️</h1>
+
+        <!-- Message -->
+        <div class="card">
+            <p class="message">You are my everything 💕</p>
+        </div>
+
+        <!-- Gallery -->
+        <div class="card gallery">
+            <img src="photo1.jpg">
+            <img src="photo2.jpg">
+            <img src="photo3.jpg">
+            <img src="photo4.jpg">
+        </div>
+
+        <!-- Timeline -->
+        <div class="card">
+            <h2>Our Journey 💑</h2>
+            <p>💖 First Meet</p>
+            <p>💖 First Chat</p>
+            <p>💖 Forever Together</p>
+        </div>
+
+        <!-- Countdown -->
+        <div class="card">
+            <h2>Time Together ⏳</h2>
+            <p id="countdown"></p>
+        </div>
+
+        <!-- 🎵 Music -->
+        <div class="card music-player">
+            <h3 id="song-name">Romantic Song 💖</h3>
+            <audio id="bg-music"></audio>
+
+            <button onclick="prevSong()">⏮️</button>
+            <button onclick="toggleMusic()">▶️ / ⏸️</button>
+            <button onclick="nextSong()">⏭️</button>
+
+            <input type="range" min="0" max="1" step="0.01" onchange="changeVolume(this.value)">
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Popup -->
+<div id="popup" class="popup">
+    <p>You make my world beautiful ❤️</p>
+    <button onclick="closePopup()">Close</button>
+</div>
+
+<script src="script.js"></script>
+</body>
