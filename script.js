@@ -6,6 +6,9 @@ function checkPassword() {
     if (input === correctPassword) {
         document.getElementById("login").style.display = "none";
         document.getElementById("content").style.display = "block";
+
+        // ▶️ Auto play music after unlock (user interaction = allowed)
+        music.play();
     } else {
         document.getElementById("error").innerText = "Wrong password 💔";
     }
@@ -33,36 +36,47 @@ function closePopup() {
 }
 
 // 🎵 MUSIC PLAYER
-let songs = ["Song.mp3", "Song.mp3"];
-let names = ["Romantic Song 💖", "Love Song 💕"];
+let songs = ["Song.mp3"]; // 👈 Add more songs if you want
+let names = ["Romantic Song 💖"];
 let current = 0;
 
-let music = document.getElementById("bg-music");
-let title = document.getElementById("song-name");
+let music;
+let title;
 
-music.src = songs[current];
+// Wait for page to load (IMPORTANT FIX)
+window.onload = function () {
+    music = document.getElementById("bg-music");
+    title = document.getElementById("song-name");
 
+    music.src = songs[current];
+};
+
+// ▶️ Play / Pause
 function toggleMusic() {
     if (music.paused) music.play();
     else music.pause();
 }
 
+// ⏭️ Next
 function nextSong() {
     current = (current + 1) % songs.length;
     updateSong();
 }
 
+// ⏮️ Previous
 function prevSong() {
     current = (current - 1 + songs.length) % songs.length;
     updateSong();
 }
 
+// 🔄 Update Song
 function updateSong() {
     music.src = songs[current];
     title.innerText = names[current];
     music.play();
 }
 
+// 🔊 Volume
 function changeVolume(v) {
     music.volume = v;
 }
