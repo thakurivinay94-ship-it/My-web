@@ -12,7 +12,7 @@ function checkPassword() {
 }
 
 // ⏳ COUNTDOWN
-let startDate = new Date("2024-01-01");
+let startDate = new Date("2025-08-09");
 
 setInterval(() => {
     let now = new Date();
