@@ -1,6 +1,6 @@
 // 🔐 PASSWORD
 function checkPassword() {
-    let correctPassword = "iloveyou";
+    let correctPassword = "vinay@123";
     let input = document.getElementById("password").value;
 
     if (input === correctPassword) {
